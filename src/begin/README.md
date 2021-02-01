@@ -120,11 +120,11 @@ k6 run testScript2-option.js
 | **[RPS](https://k6.io/docs/using-k6/options#rps)** | Ngưỡng (Số) request tối đa trên giây |
 | **[Scenarios](https://k6.io/docs/using-k6/options#scenarios)** | Định nghĩa các cấu hình cho từng trường hợp chạy (giống spring profile) |
 | **[Setup Timeout](https://k6.io/docs/using-k6/options#setup-timeout)** | hàm `setup()` được chạy tối đa bao lâu trước khi bị ép tắt |
-| **[Stages](https://k6.io/docs/using-k6/options#stages)** | A list of objects that specify the target number of VUs to ramp up or down |
-| **[Summary export](https://k6.io/docs/using-k6/options#summary-export)** | Output the end-of-test summary report to a JSON file |
-| **[Supply Env Var](https://k6.io/docs/using-k6/options#supply-env-var)** | Add/override environment variable with VAR=value |
-| **[System Tags](https://k6.io/docs/using-k6/options#system-tags)** | Specify which System Tags will be in the collected metrics |
-| **[Summary Trend Stats](https://k6.io/docs/using-k6/options#summary-trend-stats)** | Define stats for trend metrics |
+| **[Stages](https://k6.io/docs/using-k6/options#stages)** | Danh sách cấu hình ramp up hoặc down VUs theo thời gian|
+| **[Summary export](https://k6.io/docs/using-k6/options#summary-export)** | Path của file báo cáo tổng hợp dạng json |
+| **[Supply Env Var](https://k6.io/docs/using-k6/options#supply-env-var)** | Cấu hình thêm hoặc ghi đè lại biến môi trường |
+| **[System Tags](https://k6.io/docs/using-k6/options#system-tags)** | Cấu hình các các metric của system được lấy, thu thập |
+| **[Summary Trend Stats](https://k6.io/docs/using-k6/options#summary-trend-stats)** | Cấu hình các loại thống kê kiểu Trend (metric type) sẽ được xử lý |
 | **[Tags](https://k6.io/docs/using-k6/options#tags)** | Specify tags that should be set test wide across all metrics |
 | **[Teardown Timeout](https://k6.io/docs/using-k6/options#teardown-timeout)** | Specify how long the teardown() function is allowed to run before it's terminated |
 | **[Thresholds](https://k6.io/docs/using-k6/options#thresholds)** | Configure under what conditions a test is successful or not |
