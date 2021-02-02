@@ -125,13 +125,13 @@ k6 run testScript2-option.js
 | **[Supply Env Var](https://k6.io/docs/using-k6/options#supply-env-var)** | Cấu hình thêm hoặc ghi đè lại biến môi trường |
 | **[System Tags](https://k6.io/docs/using-k6/options#system-tags)** | Cấu hình các các metric của system được lấy, thu thập |
 | **[Summary Trend Stats](https://k6.io/docs/using-k6/options#summary-trend-stats)** | Cấu hình các loại thống kê kiểu Trend (metric type) sẽ được xử lý |
-| **[Tags](https://k6.io/docs/using-k6/options#tags)** | Specify tags that should be set test wide across all metrics |
-| **[Teardown Timeout](https://k6.io/docs/using-k6/options#teardown-timeout)** | Specify how long the teardown() function is allowed to run before it's terminated |
-| **[Thresholds](https://k6.io/docs/using-k6/options#thresholds)** | Configure under what conditions a test is successful or not |
-| **[Throw](https://k6.io/docs/using-k6/options#throw)** | A boolean specifying whether to throw errors on failed HTTP requests |
-| **[TLS Auth](https://k6.io/docs/using-k6/options#tls-auth)** | A list of TLS client certificate configuration objects |
-| **[TLS Cipher Suites](https://k6.io/docs/using-k6/options#tls-cipher-suites)** | A list of cipher suites allowed to be used by in SSL/TLS interactions with a server |
-| **[TLS Version](https://k6.io/docs/using-k6/options#tls-version)** | String or object representing the only SSL/TLS version allowed |
-| **[User Agent](https://k6.io/docs/using-k6/options#user-agent)** | A string specifying the User-Agent header when sending HTTP requests |
-| **[VUs](https://k6.io/docs/using-k6/options#vus)** | A number specifying the number of VUs to run concurrently |
-| **[VUs Max](https://k6.io/docs/using-k6/options#vus-max)** | A number specifying max number of virtual users |
+| **[Tags](https://k6.io/docs/using-k6/options#tags)** | Thêm tag (thẻ) cho cac dữ liệu metric trong suốt quá trình chạy (chưa thử nghiệm, chắc là cho cloud) |
+| **[Teardown Timeout](https://k6.io/docs/using-k6/options#teardown-timeout)** | Thời gian tối đa để xử lý hàm dọn dữ liệu tạm (teardown) trước khi tắt tiến trình |
+| **[Thresholds](https://k6.io/docs/using-k6/options#thresholds)** | Cấu hình điều kiện cho các metric để đưa ra đánh giá pass hoặc fail cho 1 tiêu chí test dựa trên metric |
+| **[Throw](https://k6.io/docs/using-k6/options#throw)** | Có ném ra ngoại lệ (exception) khi 1 http request bị lỗi không (VD: mất kết nối) |
+| **[TLS Auth](https://k6.io/docs/using-k6/options#tls-auth)** | Cert này dùng để chứng thực server kết nối đến (dùng nếu là self cert)  |
+| **[TLS Cipher Suites](https://k6.io/docs/using-k6/options#tls-cipher-suites)** | Danh sách các bộ tls cipher, sử dụng cho kết nối https đến server |
+| **[TLS Version](https://k6.io/docs/using-k6/options#tls-version)** | Phiên bản chấp nhận sử dụng của tls trong tạo kết nối giữa client server |
+| **[User Agent](https://k6.io/docs/using-k6/options#user-agent)** | User-Agent sử dụng trong header của mỗi request test |
+| **[VUs](https://k6.io/docs/using-k6/options#vus)** | Hiểu tương đương như CCU, số lượng active user đồng thời |
+| **[VUs Max](https://k6.io/docs/using-k6/options#vus-max)** | Số lượng active user tối đa cho phép |
