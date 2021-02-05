@@ -9,18 +9,18 @@ https://k6.io/docs/getting-started/running-k6
 
 ### Chạy ứng dụng cơ bản:
 ```
-k6 run testScript1-hello.js
+k6 run 1_hello.js
 ```
 
 Nâng số lượng virtual user và chạy trong 30s:
 ````
-k6 run --vus 10 --duration 30s testScript1-hello.js
+k6 run --vus 10 --duration 30s 1_hello.js
 ````
 
 ### Sử dụng cấu hình được set trong script test
 https://k6.io/docs/using-k6/options
 ````
-k6 run testScript2-option.js
+k6 run 3_option.js
 ````
 ### Các đọc dữ liệu:
 
@@ -135,3 +135,64 @@ k6 run testScript2-option.js
 | **[User Agent](https://k6.io/docs/using-k6/options#user-agent)** | User-Agent sử dụng trong header của mỗi request test |
 | **[VUs](https://k6.io/docs/using-k6/options#vus)** | Hiểu tương đương như CCU, số lượng active user đồng thời |
 | **[VUs Max](https://k6.io/docs/using-k6/options#vus-max)** | Số lượng active user tối đa cho phép |
+
+
+### Vòng đời của bộ test
+
+Vòng đời của test gồm có 4 giai đoạn trong code được mô tả như sau
+
+
+```
+// 1. init code
+
+    - Các code ở đây chỉ chạy một lần duy nhất trong suốt quá trình chạy test.
+    - Ở phần này mình sẽ viết các code dùng để khai báo, khởi tạo mà pham vi sử dụng là global.
+    VD: Khai báo các biến Metric, thông số cấu hình (Option)
+
+
+
+// 2. setup code
+export function setup() {
+    .....
+    return data;
+    
+ 
+  
+    - Các code ở đây chỉ chạy một lần duy nhất trong suốt quá trình chạy test.
+    - Thường sẽ viết các đoạn chuẩn bị môi trường và dữ liệu test tại đây.
+    - Lưu ý hàm có return ra giá trị trong biến data, giá trị này sẽ không đổi và truyền vào các hàm default và teardown ở dưới.
+}
+
+
+
+// 3. VU code
+export default function (data) {
+  
+  
+  - Các code ở đây sẽ được chạy cho mỗi request , hàm này sẽ tạo ra request tới server nếu là test performance cho 1 API.
+  - Viết thế cho các bác dễ hiểu, còn thực tế là chính hàm này xử lý 1 lần test, và test gì như thế nào thì viết trong này.
+  
+}
+
+
+
+// 4. teardown code
+export function teardown(data) {
+
+  
+  - Đoạn code này chạy 1 lần sau khi kết thúc bộ test, thường để dọn các dữ liệu tạm (dọn rác) 
+}
+```
+
+### Các đường dẫn tham khảo
+Các tool và plugin tích hợp với k6
+https://k6.io/docs/integrations
+
+Các source code template cho các case nâng cao
+https://k6.io/docs/examples
+
+Tài liệu các hàm, thư viện mà K6 cung cấp
+https://k6.io/docs/javascript-api
+
+Tài liệu cơ bản, hướng dẫn sử dụng
+https://k6.io/docs/

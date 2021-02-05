@@ -18,6 +18,11 @@ export let CounterErrors = new Counter('CUSTOM_Errors');
 export default function () {
     let res = http.get('https://test-api.k6.io/public/crocodiles/1/');
     let contentOK = res.json('name') === 'Bert';
+
+// res là object có cấu trúc như thế nào anh em tham khảo link dưới
+// https://k6.io/docs/javascript-api/k6-http/response
+
+
     TrendRTT.add(res.timings.duration);
     RateContentOK.add(contentOK);
     GaugeContentSize.add(res.body.length);
